@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './DashboardLayout.module.scss';
 import { Navigate, Outlet } from 'react-router-dom';
-import Header from '../HeaderLayout'
+import HeaderLayout from '../HeaderLayout'
 import { useAppSelector } from 'src/redux/hooks';
 import ROUTE_CONSTANTS from 'src/constants/router/route-constants';
 
@@ -12,7 +12,7 @@ const DashboardLayoutContent: React.FC = () => {
 
     return (
         <main className={styles.container}>
-            <Header />
+            <HeaderLayout />
             <div>
                 <Outlet />
             </div>

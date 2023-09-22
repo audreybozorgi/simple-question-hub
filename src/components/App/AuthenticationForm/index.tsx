@@ -1,5 +1,5 @@
 import React from 'react'
-import FormFieldWrapper from '../../FormFieldWrapper'
+import FormFieldWrapper from '../FormFieldWrapper'
 import { Controller, useForm } from 'react-hook-form'
 import Input from 'src/components/Kit/Input'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -13,7 +13,7 @@ import styles from './AuthenticationForm.module.scss'
 
 interface IAuthenticationFormProps {
     formActionProperties: {
-        onFormSubmit: (data: IAuthForm) => void; 
+        onFormSubmit: (data: IAuthForm) => void;
         text: string;
     };
     type: AUTH_FORM_TYPES
@@ -37,9 +37,19 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
     const routerSwitchHandler = () => {
         switch (type) {
             case AUTH_FORM_TYPES.REGISTER:
-                return <span className={styles.routerSwitchAction} onClick={() => navigate(ROUTE_CONSTANTS.AUTH.LOGIN.ABSOLUTE)}>Already have an account!</span>
+                return <span
+                    className={styles.routerSwitchAction}
+                    onClick={() => navigate(ROUTE_CONSTANTS.AUTH.LOGIN.ABSOLUTE)}
+                >
+                    Already have an account!
+                </span>
             case AUTH_FORM_TYPES.LOGIN:
-                return <span className={styles.routerSwitchAction} onClick={() => navigate(ROUTE_CONSTANTS.AUTH.REGISTER.ABSOLUTE)}>Don't have an account?</span>
+                return <span
+                    className={styles.routerSwitchAction}
+                    onClick={() => navigate(ROUTE_CONSTANTS.AUTH.REGISTER.ABSOLUTE)}
+                >
+                    Don't have an account?
+                </span>
         }
     }
 
@@ -84,7 +94,7 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
                 />
             </FormFieldWrapper>
             <FormFieldWrapper>
-            {routerSwitchHandler()}
+                {routerSwitchHandler()}
             </FormFieldWrapper>
             <FormFieldWrapper>
                 <Button onClick={() => handleSubmit(formActionProperties.onFormSubmit)}>{formActionProperties.text}</Button>

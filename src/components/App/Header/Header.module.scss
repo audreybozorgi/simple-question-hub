@@ -1,0 +1,9 @@
+@import 'src/assets/styles/colors';
+
+.header_container {
+    display: flex;
+    flex-direction: row;
+    height: 68px;
+    width: 100%;
+    background-color: $header-background-color;
+}

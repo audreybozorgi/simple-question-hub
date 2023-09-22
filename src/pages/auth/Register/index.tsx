@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Register.module.scss'
-import AuthenticationForm from 'src/components/App/auth/AuthenticationForm';
+import AuthenticationForm from 'src/components/App/AuthenticationForm';
 import { IAuthForm } from 'src/types/auth/auth-form';
 import { authService } from 'src/api/services/authService';
 import { SUBMIT_TEXT } from 'src/constants/auth/submit-text';

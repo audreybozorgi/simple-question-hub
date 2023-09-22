@@ -1,0 +1,31 @@
+
+.button{
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #00aeff;
+    padding: 8px;
+    background-color: #026a9b;
+    cursor: pointer;
+    color: #fff;
+}
+
+.button:disabled{
+    opacity: 0.6;
+    cursor: default
+}
+
+.button_info{
+    @extend .button;
+}
+
+.button_success{
+    @extend .button;
+    border: 1px solid #03d04b;
+    background-color: #007629;
+}
+
+.button_danger{
+    @extend .button;
+    border: 1px solid #d00303;
+    background-color: #760000;
+}

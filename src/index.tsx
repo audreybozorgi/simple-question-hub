@@ -4,6 +4,8 @@ import reportWebVitals from './reportWebVitals';
 import { persistor, store } from './redux/store';
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react';
+import { BrowserRouter } from 'react-router-dom';
+import ROUTE_CONSTANTS from './routes/constants/route-constants';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <App />
+      <BrowserRouter basename={ROUTE_CONSTANTS.ROOT.ABSOLUTE}>
+        <App />
+      </BrowserRouter>
     </PersistGate>
   </Provider>
 );

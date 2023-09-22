@@ -5,7 +5,7 @@ import { persistor, store } from './redux/store';
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
-import ROUTE_CONSTANTS from './routes/constants/route-constants';
+import ROUTE_CONSTANTS from './constants/router/route-constants';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

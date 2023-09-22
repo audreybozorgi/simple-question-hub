@@ -16,6 +16,10 @@ const ROUTE_CONSTANTS = {
             RELATIVE: 'login',
             ABSOLUTE: '/auth/login',
         },
+        REGISTER: {
+            RELATIVE: 'register',
+            ABSOLUTE: '/auth/register',
+        },
     },
     QUESTIONS: {
         ROOT: {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import GeneralLayoutWrapper from '../GeneralLayoutWrapper/index';
 import styles from './AuthLayoutContent.module.scss';
 
 const AuthLayoutContent: React.FC = () => {
@@ -15,9 +14,7 @@ const AuthLayoutContent: React.FC = () => {
 
 const AuthLayout: React.FC = () => {
     return (
-        <GeneralLayoutWrapper>
-            <AuthLayoutContent />
-        </GeneralLayoutWrapper>
+        <AuthLayoutContent />
     );
 };
 

@@ -1,19 +1,10 @@
 {
-  "posts": [
+  "users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "username": "mbozorgi604@gmail.com",
+      "password": "valami13742748",
+      "token": "612a4681-7b11-41ff-a86e-59308b9b387e",
+      "id": 1
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

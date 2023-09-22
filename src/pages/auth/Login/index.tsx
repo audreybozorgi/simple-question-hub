@@ -6,15 +6,18 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { validationSchema } from './validation-schema';
 import FormFieldWrapper from 'src/components/App/FormFieldWrapper';
 import Button from 'src/components/Kit/Button';
+import { UUIDv4 } from 'src/utils/uuid-generator';
+import { authService } from 'src/api/services/userService';
 
 interface ILoginForm {
     username: string;
     password: string;
 }
+
 const Login: React.FC = () => {
     const {
         control,
-        formState: { errors, isValid },
+        formState: { errors },
         handleSubmit,
     } = useForm<ILoginForm>({
         defaultValues: {
@@ -26,8 +29,15 @@ const Login: React.FC = () => {
     });
 
     const onFormSubmit = async (data: ILoginForm) => {
-
+        let res = await authService.login(data)
+        console.log('res', res.data);
+        try{
+        }catch(error) {
+            console.error(error)
+        }
     }
+
+
 
     return (
         <div className={styles.container}>

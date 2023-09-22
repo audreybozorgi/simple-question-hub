@@ -10,4 +10,6 @@ export const authentication: Record<string, string> = {
     register: 'ساختن حساب کاربری',
     login: 'ورود به حساب کاربری',
     userNotFound: 'کاربر یافت نشد',
+    usernameIsMandatory: 'نام کاربری اجباری است',
+    passwordIsMandatory: 'رمز عبور اجباری است',   
 }

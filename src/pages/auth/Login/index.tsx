@@ -27,6 +27,11 @@ const Login: React.FC = () => {
                     icon: TOAST_STATUS.SUCCESS,
                     title: authentication.userLoggedInSuccessfully,
                 });
+            }else{
+                toast.fire({
+                    icon: TOAST_STATUS.ERROR,
+                    title: authentication.userNotFound,
+                });
             }
         }catch(error) {
             console.error(error)

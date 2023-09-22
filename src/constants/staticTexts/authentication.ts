@@ -9,4 +9,5 @@ export const authentication: Record<string, string> = {
     userLoggedInSuccessfully: 'کاربر با موفقیت وارد شد',
     register: 'ساختن حساب کاربری',
     login: 'ورود به حساب کاربری',
+    userNotFound: 'کاربر یافت نشد',
 }

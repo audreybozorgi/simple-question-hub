@@ -7,7 +7,7 @@ import InitLoading from 'src/components/App/Loading/InitLoading';
 
 const Login = Loader(lazy(() => import('src/pages/auth/Login')));
 const Register = Loader(lazy(() => import('src/pages/auth/Register')));
-const Questions = Loader(lazy(() => import('src/pages/Questions')));
+const Questions = Loader(lazy(() => import('src/pages/dashboard/Questions')));
 
 function Loader(Component: any) {
     return (props: any) => (

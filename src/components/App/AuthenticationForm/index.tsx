@@ -98,7 +98,12 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
                 {routerSwitchHandler()}
             </FormFieldWrapper>
             <FormFieldWrapper>
-                <Button onClick={() => handleSubmit(formActionProperties.onFormSubmit)}>{formActionProperties.text}</Button>
+                <Button 
+                    style={{height: '45px'}} 
+                    onClick={() => handleSubmit(formActionProperties.onFormSubmit)}
+                >
+                    {formActionProperties.text}
+                </Button>
             </FormFieldWrapper>
         </form>
     )

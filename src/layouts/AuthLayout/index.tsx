@@ -1,8 +1,14 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import styles from './AuthLayoutContent.module.scss';
+import { useAppSelector } from 'src/redux/hooks';
+import ROUTE_CONSTANTS from 'src/constants/router/route-constants';
 
 const AuthLayoutContent: React.FC = () => {
+    const token = useAppSelector(state => state.userSlice.token)
+
+    if(token) return <Navigate to={ROUTE_CONSTANTS.QUESTIONS.ROOT.ABSOLUTE} />
+
     return (
         <>
             <section className={styles.container}>

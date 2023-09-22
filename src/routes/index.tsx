@@ -29,9 +29,9 @@ const Routes: React.FC = () => {
                 <Route path={ROUTE_CONSTANTS.AUTH.LOGIN.RELATIVE} element={<Login />} />
                 <Route path={ROUTE_CONSTANTS.AUTH.REGISTER.RELATIVE} element={<Register />} />
             </Route>
-            <Route path={ROUTE_CONSTANTS.QUESTIONS.ROOT.RELATIVE} element={<DashboardLayout />}>
-                <Route path="" element={<Navigate to={ROUTE_CONSTANTS.QUESTIONS.ROOT.ABSOLUTE} />} />
-                <Route path={ROUTE_CONSTANTS.QUESTIONS.ROOT.RELATIVE} element={<Questions />} />
+            <Route path={ROUTE_CONSTANTS.DASHBOARD.ROOT.RELATIVE} element={<DashboardLayout />}>
+                <Route path="" element={<Navigate to={ROUTE_CONSTANTS.DASHBOARD.QUESTIONS.ROOT.ABSOLUTE} />} />
+                <Route path={ROUTE_CONSTANTS.DASHBOARD.QUESTIONS.ROOT.RELATIVE} element={<Questions />} />
             </Route>
         </RoutesWrapper>
     );

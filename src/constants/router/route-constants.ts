@@ -21,20 +21,26 @@ const ROUTE_CONSTANTS = {
             ABSOLUTE: '/auth/register',
         },
     },
-    QUESTIONS: {
+    DASHBOARD: {
         ROOT: {
-            RELATIVE: 'questions',
-            ABSOLUTE: '/questions',
+            RELATIVE: 'dashboard',
+            ABSOLUTE: '/dashboard',
         },
-        DETAILS: {
+        QUESTIONS: {
             ROOT: {
-                RELATIVE: 'questions/:id',
-                ABSOLUTE: '/questions/:id',
+                RELATIVE: 'questions',
+                ABSOLUTE: '/dashboard/questions',
             },
-            DETAILS_ID: (id: number) => ({
-                RELATIVE: `questions/${id}`,
-                ABSOLUTE: `/questions/${id}`,
-            }),
+            DETAILS: {
+                ROOT: {
+                    RELATIVE: 'questions/:id',
+                    ABSOLUTE: '/dashboard/questions/:id',
+                },
+                DETAILS_ID: (id: number) => ({
+                    RELATIVE: `questions/${id}`,
+                    ABSOLUTE: `/dashboard/questions/${id}`,
+                }),
+            },
         },
     },
     NOT_FOUND: {

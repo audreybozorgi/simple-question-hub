@@ -3,10 +3,16 @@
     border-radius: 8px;
     outline: none;
     border: 1px solid #00aeff;
-    padding: 12px;
+    padding: 8px 21px;
     background-color: #026a9b;
     cursor: pointer;
     color: #fff;
+    .buttonChildren{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .button:disabled{
@@ -20,8 +26,8 @@
 
 .button_success{
     @extend .button;
-    border: 1px solid #03d04b;
-    background-color: #007629;
+    border: 1px solid #27AE60;
+    background-color: #27AE60;
 }
 
 .button_danger{

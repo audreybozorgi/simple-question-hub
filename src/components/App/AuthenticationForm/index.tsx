@@ -10,6 +10,7 @@ import { AUTH_FORM_TYPES } from 'src/enums/auth/auth-form-types'
 import ROUTE_CONSTANTS from 'src/constants/router/route-constants'
 import { useNavigate } from 'react-router-dom'
 import styles from './AuthenticationForm.module.scss'
+import { authentication } from 'src/constants/staticTexts/authentication'
 
 interface IAuthenticationFormProps {
     formActionProperties: {
@@ -41,14 +42,14 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
                     className={styles.routerSwitchAction}
                     onClick={() => navigate(ROUTE_CONSTANTS.AUTH.LOGIN.ABSOLUTE)}
                 >
-                    Already have an account!
+                    {authentication.haveAccount}
                 </span>
             case AUTH_FORM_TYPES.LOGIN:
                 return <span
                     className={styles.routerSwitchAction}
                     onClick={() => navigate(ROUTE_CONSTANTS.AUTH.REGISTER.ABSOLUTE)}
                 >
-                    Don't have an account?
+                   {authentication.createAccount}
                 </span>
         }
     }
@@ -57,7 +58,7 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
         <form noValidate onSubmit={handleSubmit(formActionProperties.onFormSubmit)}>
             <FormFieldWrapper>
                 <label htmlFor="username">
-                    Username
+                    {authentication.username}
                 </label>
                 <Controller
                     name="username"
@@ -76,7 +77,7 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
             </FormFieldWrapper>
             <FormFieldWrapper>
                 <label htmlFor="password">
-                    Password
+                    {authentication.password}
                 </label>
                 <Controller
                     name="password"

@@ -7,7 +7,7 @@ import ROUTE_CONSTANTS from 'src/constants/router/route-constants';
 const AuthLayoutContent: React.FC = () => {
     const token = useAppSelector(state => state.userSlice.token)
 
-    if(token) return <Navigate to={ROUTE_CONSTANTS.QUESTIONS.ROOT.ABSOLUTE} />
+    if(token) return <Navigate to={ROUTE_CONSTANTS.DASHBOARD.QUESTIONS.ROOT.ABSOLUTE} />
 
     return (
         <>

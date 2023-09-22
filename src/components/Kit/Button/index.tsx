@@ -28,7 +28,9 @@ const Button: React.FC<IButtonProps> = ({ children, style, onClick, disabled, ty
         style={{...style}}
         disabled={disabled}
     >
-        {children}
+        <div className={styles.buttonChildren}>
+            {children}
+        </div>
     </button>
 }
 

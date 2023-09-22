@@ -12,6 +12,7 @@ import ROUTE_CONSTANTS from 'src/constants/router/route-constants';
 import { toast } from 'src/utils/toast';
 import { TOAST_STATUS } from 'src/enums/toast';
 import { AUTH_FORM_TYPES } from 'src/enums/auth/auth-form-types';
+import { authentication } from 'src/constants/staticTexts/authentication';
 
 const Register: React.FC = () => {
     const dispatch = useAppDispatch()
@@ -25,10 +26,10 @@ const Register: React.FC = () => {
         try{
             await authService.register(tempUser)
             dispatch(handleSaveUser({username: tempUser.username, token: tempUser.token}))
-            navigate(ROUTE_CONSTANTS.QUESTIONS.ROOT.ABSOLUTE)
+            navigate(ROUTE_CONSTANTS.DASHBOARD.QUESTIONS.ROOT.ABSOLUTE)
             toast.fire({
                 icon: TOAST_STATUS.SUCCESS,
-                title: "User Registered successfully!",
+                title: authentication.userCreateSuccessfully,
             });
         }catch(error) {
             console.error(error)
@@ -38,7 +39,7 @@ const Register: React.FC = () => {
     return (
         <div className={styles.container}>
             <div>
-                <h1>Sign up to continue</h1>
+                <h1>{authentication.createAccount}</h1>
                 <AuthenticationForm
                     formActionProperties={{
                         onFormSubmit: onFormSubmit,

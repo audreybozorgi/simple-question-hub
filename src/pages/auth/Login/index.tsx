@@ -11,6 +11,7 @@ import ROUTE_CONSTANTS from 'src/constants/router/route-constants';
 import { AUTH_FORM_TYPES } from 'src/enums/auth/auth-form-types';
 import { toast } from 'src/utils/toast';
 import { TOAST_STATUS } from 'src/enums/toast';
+import { authentication } from 'src/constants/staticTexts/authentication';
 
 const Login: React.FC = () => {
     const dispatch = useAppDispatch()
@@ -21,10 +22,10 @@ const Login: React.FC = () => {
             let res = await authService.login(data)
             if(res.data.length > 0) {
                 dispatch(handleSaveUser(res.data[0]))
-                navigate(ROUTE_CONSTANTS.QUESTIONS.ROOT.ABSOLUTE)
+                navigate(ROUTE_CONSTANTS.DASHBOARD.QUESTIONS.ROOT.ABSOLUTE)
                 toast.fire({
                     icon: TOAST_STATUS.SUCCESS,
-                    title: "User Logged in successfully!",
+                    title: authentication.userLoggedInSuccessfully,
                 });
             }
         }catch(error) {
@@ -35,7 +36,7 @@ const Login: React.FC = () => {
     return (
         <div className={styles.container}>
             <div>
-                <h1>Welcome back to Question Hub</h1>
+                <h1>{authentication.welcomeBack}</h1>
                 <AuthenticationForm 
                     formActionProperties={{
                         onFormSubmit: onFormSubmit,

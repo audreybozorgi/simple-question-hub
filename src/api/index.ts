@@ -36,7 +36,7 @@ const APIInstance = () => {
             return instance.put(url, data, config);
         },
 
-        path: <T, B = {}, R = AxiosResponse<T>>(url: string, data?: B, config?: AxiosRequestConfig): Promise<R> => {
+        patch: <T, B = {}, R = AxiosResponse<T>>(url: string, data?: B, config?: AxiosRequestConfig): Promise<R> => {
             return instance.patch(url, data, config);
         },
 

@@ -65,11 +65,9 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
             description: data.description,
             date: new Date().toLocaleDateString('fa-IR'),
             time: new Date().toLocaleTimeString('fa-IR'),
-            like: 0,
-            dislike: 0,
             answers: [],
             username: user.username,
-            token: UUIDv4()
+            uuid: UUIDv4()
         }
 
         try{
@@ -92,7 +90,7 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
                 <div className={styles.formWrapper}>
                     <form noValidate onSubmit={handleSubmit(onSubmit)}>
                         <FormFieldWrapper>
-                            <label htmlFor="subject">
+                            <label className='form-field-label' htmlFor="subject">
                                 {createNewModal.subject}
                             </label>
                             <Controller
@@ -102,7 +100,7 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
                                     <>
                                         <Input onChange={field.onChange} />
                                         {errors?.subject?.message && (
-                                            <span>
+                                            <span className='form-error-text'>
                                                 {errors?.subject?.message.toString()}
                                             </span>
                                         )}
@@ -111,7 +109,7 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
                             />
                         </FormFieldWrapper>
                         <FormFieldWrapper>
-                            <label htmlFor="description">
+                            <label className='form-field-label' htmlFor="description">
                                 {createNewModal.description}
                             </label>
                             <Controller
@@ -121,7 +119,7 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
                                     <>
                                         <Textarea onChange={field.onChange} style={{height: '164px', resize: 'none'}}/>
                                         {errors?.description?.message && (
-                                            <span>
+                                            <span className='form-error-text'>
                                                 {errors?.description?.message.toString()}
                                             </span>
                                         )}

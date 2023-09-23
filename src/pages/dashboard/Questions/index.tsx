@@ -38,9 +38,12 @@ const Questions: React.FC = () => {
                 {questions.map((question: IQuestionPayload, index) =>
                     <ContentCard 
                         key={index} 
-                        data={question} 
+                        title={question.subject}
+                        description={question.description}
+                        date={question.date}
+                        time={question.time}
                         headerSuffix={
-                            <div className={styles.answersWrapper}>
+                            <div className={styles.descriptionWrapper}>
                                 <Answer />
                                 <span>{question.answers.length}</span>
                             </div>

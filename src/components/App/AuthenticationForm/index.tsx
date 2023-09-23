@@ -57,7 +57,7 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
     return (
         <form noValidate onSubmit={handleSubmit(formActionProperties.onFormSubmit)}>
             <FormFieldWrapper>
-                <label htmlFor="username">
+                <label className='form-field-label' htmlFor="username">
                     {authentication.username}
                 </label>
                 <Controller
@@ -67,7 +67,7 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
                         <>
                             <Input onChange={field.onChange} />
                             {errors?.username?.message && (
-                                <span>
+                                <span className='form-error-text'>
                                     {errors?.username?.message.toString()}
                                 </span>
                             )}
@@ -76,7 +76,7 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
                 />
             </FormFieldWrapper>
             <FormFieldWrapper>
-                <label htmlFor="password">
+                <label className='form-field-label' htmlFor="password">
                     {authentication.password}
                 </label>
                 <Controller
@@ -86,7 +86,7 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
                         <>
                             <Input onChange={field.onChange} type='password' />
                             {errors?.password?.message && (
-                                <span>
+                                <span className='form-error-text'>
                                     {errors?.password?.message.toString()}
                                 </span>
                             )}

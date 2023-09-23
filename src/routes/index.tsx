@@ -8,6 +8,7 @@ import InitLoading from 'src/components/App/Loading/InitLoading';
 const Login = Loader(lazy(() => import('src/pages/auth/Login')));
 const Register = Loader(lazy(() => import('src/pages/auth/Register')));
 const Questions = Loader(lazy(() => import('src/pages/dashboard/Questions')));
+const QuestionDetail = Loader(lazy(() => import('src/pages/dashboard/Questions/QuestionDetail')));
 
 function Loader(Component: any) {
     return (props: any) => (
@@ -32,6 +33,7 @@ const Routes: React.FC = () => {
             <Route path={ROUTE_CONSTANTS.DASHBOARD.ROOT.RELATIVE} element={<DashboardLayout />}>
                 <Route path="" element={<Navigate to={ROUTE_CONSTANTS.DASHBOARD.QUESTIONS.ROOT.ABSOLUTE} />} />
                 <Route path={ROUTE_CONSTANTS.DASHBOARD.QUESTIONS.ROOT.RELATIVE} element={<Questions />} />
+                <Route path={ROUTE_CONSTANTS.DASHBOARD.QUESTIONS.DETAILS.ROOT.RELATIVE} element={<QuestionDetail />} />
             </Route>
         </RoutesWrapper>
     );

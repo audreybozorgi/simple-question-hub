@@ -12,7 +12,10 @@ export const questionList: Record<string, string> = {
     seeDetail: 'مشاهده جزییات',
 }
 
-export const question: Record<string, string> = {
+export const question_static_texts: Record<string, string> = { // TODO: make all static text with prefix
     createNewAnswer: 'ارسال پاسخ',
     writeYourAnswer: 'پاسخ خود را بنویسید',
+    answers: 'پاسخ ها',
+    answerWasBad: 'پاسخ خوب نبود',
+    answerWasGood: 'پاسخ خوب بود',
 }

@@ -12,7 +12,13 @@ export const questionService = {
     getOne(id: number) {
         return AxiosInstance.get<IQuestionPayload>(API_ROUTES.QUESTION.GET_ONE(id));
     },
-    addNewAnswer(id: number, data: {answers: IAnswer[]}) {
-        return AxiosInstance.patch(API_ROUTES.QUESTION.ADD_NEW_ANSWER(id), data);
+    addNewAnswer(questionId: number, data: {answers: IAnswer[]}) {
+        return AxiosInstance.patch(API_ROUTES.QUESTION.ADD_NEW_ANSWER(questionId), data);
     },
+    likeAnswer(questionId: number, answersId: string, numberOfReactions: number) {
+        return AxiosInstance.get(API_ROUTES.QUESTION.LIKE_ANSWER(questionId));
+    },
+    // dislikeAnswer(questionId: number, answersId: string, numberOfReactions: number) {
+    //     return AxiosInstance.patch(API_ROUTES.QUESTION.DISLIKE_ANSWER(questionId, answersId), {dislike: numberOfReactions});
+    // },
 };

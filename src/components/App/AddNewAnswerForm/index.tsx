@@ -5,15 +5,11 @@ import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { validationSchema } from './validation-schema';
 import FormFieldWrapper from '../FormFieldWrapper';
-import Input from 'src/components/Kit/Input';
 import Textarea from 'src/components/Kit/Textarea';
 import Button from 'src/components/Kit/Button';
 import { BUTTON_CLASS_OPTIONS } from 'src/enums/button';
 import { useAppSelector } from 'src/redux/hooks';
-import { questionService } from 'src/api/services/questionService';
-import { IAnswer, IQuestionType } from 'src/types/question';
-import { createNewModal, question } from 'src/constants/staticTexts/questions';
-import { UUIDv4 } from 'src/utils/uuid-generator';
+import { question_static_texts } from 'src/constants/staticTexts/questions';
 
 interface IAnswerForm {
     description: string;
@@ -24,8 +20,6 @@ interface IAddNewAnswerFormProps {
 } 
 
 const AddNewAnswerForm: React.FC<IAddNewAnswerFormProps> = ({ onSubmit }) => {
-    const user = useAppSelector(state => state.userSlice)
-
     const {
         control,
         formState: { errors },
@@ -43,7 +37,7 @@ const AddNewAnswerForm: React.FC<IAddNewAnswerFormProps> = ({ onSubmit }) => {
             <form noValidate onSubmit={handleSubmit(onSubmit)}>
                 <FormFieldWrapper>
                     <label className='form-field-label' htmlFor="subject">
-                        {question.writeYourAnswer}
+                        {question_static_texts.writeYourAnswer}
                     </label>
                     <Controller
                         name="description"
@@ -65,7 +59,7 @@ const AddNewAnswerForm: React.FC<IAddNewAnswerFormProps> = ({ onSubmit }) => {
                         type={BUTTON_CLASS_OPTIONS.SUCCESS}
                         onClick={handleSubmit(onSubmit)}
                     >
-                        {question.createNewAnswer}
+                        {question_static_texts.createNewAnswer}
                     </Button>
                 </div>
             </form>

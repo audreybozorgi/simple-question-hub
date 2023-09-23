@@ -2,12 +2,19 @@
     margin-top: 32px; // TODO: all pixels should be variable
     padding: 0px 56px;
 
-    .descriptionWrapper {
+    .suffixWrapper {
         display: flex;
         flex-direction: row;
         align-items: center;
 
-        >span {
+        .reactionWrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        span {
             margin-right: 4px;
             color: var(--gray-dark, #777);
             text-align: right;
@@ -29,6 +36,24 @@
         .answerCardsWrapper {
             margin-top: 16px;
 
+            .text {
+                text-align: center;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 20px;
+                margin-right: 8px;
+            }
+
+            .sadButtonText {
+                @extend .text;
+                color: #F16063
+            }
+
+            .happyButtonText {
+                @extend .text;
+                color: #66CB9F
+            }
         }
     }
 

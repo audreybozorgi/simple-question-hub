@@ -43,9 +43,22 @@
     color: #27AE60;
 }
 
-.button_bordered_outline {
+.button_bordered_outline{
+    @extend .button;
+    border: 1px solid #E4E9EC;
+    background-color: transparent;
+}
+
+.button_success_bordered_outline {
     @extend .button;
     border: 1px solid #27AE60;
     background-color: transparent;
     color: #27AE60;
+}
+
+.button_danger_bordered_outline {
+    @extend .button;
+    border: 1px solid #F16063;
+    background-color: transparent;
+    color: #F16063;
 }

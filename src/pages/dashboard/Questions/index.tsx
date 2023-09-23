@@ -43,7 +43,7 @@ const Questions: React.FC = () => {
                         date={question.date}
                         time={question.time}
                         headerSuffix={
-                            <div className={styles.descriptionWrapper}>
+                            <div className={styles.suffixWrapper}>
                                 <Answer />
                                 <span>{question.answers.length}</span>
                             </div>
@@ -51,7 +51,7 @@ const Questions: React.FC = () => {
                         cardAction={
                             <Button 
                                 style={{padding: '8px'}}
-                                type={BUTTON_CLASS_OPTIONS.BORDERED_OUTLINE} 
+                                type={BUTTON_CLASS_OPTIONS.SUCCESS_BORDERED_OUTLINE} 
                                 onClick={() => navigate(ROUTE_CONSTANTS.DASHBOARD.QUESTIONS.DETAILS.DETAILS_ID(question.id).ABSOLUTE)}
                             >
                                 <span>{questionList.seeDetail}</span>

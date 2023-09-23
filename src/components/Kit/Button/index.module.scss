@@ -1,5 +1,4 @@
-
-.button{
+.button {
     border-radius: 8px;
     outline: none;
     border: 1px solid #00aeff;
@@ -7,7 +6,8 @@
     background-color: #026a9b;
     cursor: pointer;
     color: #fff;
-    .buttonChildren{
+
+    .buttonChildren {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -15,30 +15,37 @@
     }
 }
 
-.button:disabled{
+.button:disabled {
     opacity: 0.6;
     cursor: default
 }
 
-.button_info{
+.button_info {
     @extend .button;
 }
 
-.button_success{
+.button_success {
     @extend .button;
     border: 1px solid #27AE60;
     background-color: #27AE60;
 }
 
-.button_danger{
+.button_danger {
     @extend .button;
     border: 1px solid #d00303;
     background-color: #760000;
 }
 
-.button_outline{
+.button_outline {
     @extend .button;
     border: none;
+    background-color: transparent;
+    color: #27AE60;
+}
+
+.button_bordered_outline {
+    @extend .button;
+    border: 1px solid #27AE60;
     background-color: transparent;
     color: #27AE60;
 }

@@ -5,3 +5,7 @@ export const createNewModal: Record<string, string> = {
     cancel: 'انصراف',
     create: 'ایجاد سوال',
 }
+
+export const questionList: Record<string, string> = {
+    seeDetail: 'مشاهده جزییات',
+}

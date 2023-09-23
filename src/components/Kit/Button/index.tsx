@@ -20,6 +20,8 @@ const Button: React.FC<IButtonProps> = ({ children, style, onClick, disabled, ty
                 return styles.button_danger
             case BUTTON_CLASS_OPTIONS.OUTLINE:
                 return styles.button_outline
+            case BUTTON_CLASS_OPTIONS.BORDERED_OUTLINE:
+                return styles.button_bordered_outline
             default:
                 return styles.button
         }

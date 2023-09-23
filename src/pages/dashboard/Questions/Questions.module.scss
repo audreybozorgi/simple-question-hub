@@ -1,6 +1,22 @@
 @import 'src/assets/styles/colors';
 
-.questionsWrapper{
+.questionsWrapper {
     margin-top: 32px; // TODO: all pixels should be variable
     padding: 0px 56px;
+
+    .answersWrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        >span {
+            margin-right: 4px;
+            color: var(--gray-dark, #777);
+            text-align: right;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+        }
+    }
 }

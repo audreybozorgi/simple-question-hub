@@ -19,6 +19,42 @@
       "username": "admin@nizek.com",
       "token": "0d492379-8c32-4ff2-8a5d-123ebc5e6546",
       "id": 1
+    },
+    {
+      "subject": "React رد Auth رد ﻞﮑﺸﻣ",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،",
+      "date": "۱۴۰۲/۷/۱",
+      "time": "۱۸:۱۹:۳۲",
+      "like": 0,
+      "dislike": 0,
+      "answers": [],
+      "username": "admin@nizek.com",
+      "token": "717091f4-124f-4152-8bf7-3bd7031fd0ac",
+      "id": 2
+    },
+    {
+      "subject": "تست تست تست ",
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،\n\n<div className={styles.cardHeader}>\n                <div className={styles.userWrapper}>\n                    <img src={staticImages.rectangleAvatar}/>\n                    <span>{data.subject}</span>\n                </div>\n                <div className={styles.detailsWrapper}>\n                    <Date date={data.date} time={data.time} />\n                    <div className={styles.detailsSuffix}>\n                        {headerSuffix}\n                    </div>\n                </div>\n            </div>",
+      "date": "۱۴۰۲/۷/۱",
+      "time": "۱۸:۲۰:۳۰",
+      "like": 0,
+      "dislike": 0,
+      "answers": [],
+      "username": "admin@nizek.com",
+      "token": "085623f6-fbe3-4bf0-89af-3977cb7c1267",
+      "id": 3
+    },
+    {
+      "subject": "مشکل در auth در react",
+      "description": "سلام من دارم کار میکنم",
+      "date": "۱۴۰۲/۷/۱",
+      "time": "۱۸:۲۱:۳۶",
+      "like": 0,
+      "dislike": 0,
+      "answers": [],
+      "username": "admin@nizek.com",
+      "token": "6e70d5c3-e51e-45e9-aa7b-e129dac427f5",
+      "id": 4
     }
   ]
 }

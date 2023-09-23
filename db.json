@@ -47,6 +47,24 @@
       "password": "valami13742748",
       "token": "b65058b8-8456-44cf-a9cc-7305e448a88e",
       "id": 8
+    },
+    {
+      "username": "audrey",
+      "password": "valami13742748",
+      "token": "99eebd4a-fd18-40fc-adff-fdba7a128ef1",
+      "id": 9
+    }
+  ],
+  "question": [
+    {
+      "subject": "sfwf",
+      "description": "wefwefwef",
+      "date": "2023-09-23T13:15:37.453Z",
+      "like": 0,
+      "dislike": 0,
+      "answers": [],
+      "username": "audrey",
+      "id": 1
     }
   ]
 }

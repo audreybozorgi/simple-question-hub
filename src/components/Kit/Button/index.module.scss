@@ -35,3 +35,10 @@
     border: 1px solid #d00303;
     background-color: #760000;
 }
+
+.button_outline{
+    @extend .button;
+    border: none;
+    background-color: transparent;
+    color: #27AE60;
+}

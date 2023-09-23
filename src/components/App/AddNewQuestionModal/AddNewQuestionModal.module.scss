@@ -1,0 +1,32 @@
+@import 'src/assets/styles/colors';
+
+
+.modalContent {
+    width: 700px;
+    min-height: 440px;
+    background-color: $background-color;
+
+    .header {
+        height: 48px;
+        opacity: 0.7;
+        background: #FFF;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 16px;
+        box-shadow: 0px 0px 1px 0px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05);
+    };
+
+    .formWrapper {
+        padding: 0px 20px;
+
+        .actionWrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin: 24px 0;
+        }
+    }
+}

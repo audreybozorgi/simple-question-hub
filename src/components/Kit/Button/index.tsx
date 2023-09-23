@@ -18,6 +18,8 @@ const Button: React.FC<IButtonProps> = ({ children, style, onClick, disabled, ty
                 return styles.button_success
             case BUTTON_CLASS_OPTIONS.DANGER:
                 return styles.button_danger
+            case BUTTON_CLASS_OPTIONS.OUTLINE:
+                return styles.button_outline
             default:
                 return styles.button
         }

@@ -4,4 +4,7 @@ export const API_ROUTES = {
         LOGIN:    '/users',
         REGISTER: '/users',
     },
+        QUESTION: {
+        ADD_NEW:    '/question',
+    },
 };

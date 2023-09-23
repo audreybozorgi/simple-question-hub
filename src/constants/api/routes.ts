@@ -6,5 +6,6 @@ export const API_ROUTES = {
     },
         QUESTION: {
         ADD_NEW:    '/question',
+        GET_ALL: '/question'
     },
 };

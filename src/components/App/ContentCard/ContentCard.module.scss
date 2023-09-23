@@ -1,0 +1,35 @@
+
+.cardWrapper{
+    height: 155px;
+    width: 100%;
+    background-color: #F9F9F9;
+    box-shadow: 0px 0px 1px 0px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05);
+    border-radius: 8px;
+    margin-top: 20px;
+
+    .cardHeader{
+        height: 48px;
+        background-color: #FFF;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-radius: 8px;
+        padding: 0px 16px;
+
+        .userWrapper{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            >span{
+                margin-right: 16px;
+            }
+        }   
+
+        .detailsWrapper{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+}

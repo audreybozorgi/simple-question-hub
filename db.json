@@ -1,69 +1,23 @@
 {
   "users": [
     {
-      "username": "mbozorgi604@gmail.com",
-      "password": "valami13742748",
-      "token": "612a4681-7b11-41ff-a86e-59308b9b387e",
+      "username": "admin@nizek.com",
+      "password": "123456",
+      "token": "4311862e-c74b-4cbb-909b-cf592fe91836",
       "id": 1
-    },
-    {
-      "username": "mbozorgi604@gmail.com",
-      "password": "valami13742748",
-      "token": "06415914-5af2-4a51-a8c3-008ac2a3607d",
-      "id": 2
-    },
-    {
-      "username": "mbozorgi604@gmail.com",
-      "password": "valami13742748",
-      "token": "7b6678a3-4985-45c4-8f2d-48b604b1833a",
-      "id": 3
-    },
-    {
-      "username": "mbozorgi604@gmail.com2323",
-      "password": "valami13742748",
-      "token": "631c68ea-7dc0-4c92-9fc0-63b3607801d6",
-      "id": 4
-    },
-    {
-      "username": "mbozorgi604@gmail.com121212",
-      "password": "valami13742748",
-      "token": "58000a68-6863-409c-be2c-1b83870c1f9f",
-      "id": 5
-    },
-    {
-      "username": "mbozorgi604@gmail.com234",
-      "password": "valami13742748",
-      "token": "cfb0c75b-dd79-493d-8ab7-916b44db16a9",
-      "id": 6
-    },
-    {
-      "username": "mbozorgi604@gmail.com",
-      "password": "valami13742748",
-      "token": "5a09b407-4308-4221-9606-933ee03f6827",
-      "id": 7
-    },
-    {
-      "username": "mbozorgi604@gmail.com1111111111",
-      "password": "valami13742748",
-      "token": "b65058b8-8456-44cf-a9cc-7305e448a88e",
-      "id": 8
-    },
-    {
-      "username": "audrey",
-      "password": "valami13742748",
-      "token": "99eebd4a-fd18-40fc-adff-fdba7a128ef1",
-      "id": 9
     }
   ],
   "question": [
     {
-      "subject": "sfwf",
-      "description": "wefwefwef",
-      "date": "2023-09-23T13:15:37.453Z",
+      "subject": "hello world",
+      "description": "hello world",
+      "date": "۱۴۰۲/۷/۱",
+      "time": "۱۷:۵۶:۳۹",
       "like": 0,
       "dislike": 0,
       "answers": [],
-      "username": "audrey",
+      "username": "admin@nizek.com",
+      "token": "0d492379-8c32-4ff2-8a5d-123ebc5e6546",
       "id": 1
     }
   ]

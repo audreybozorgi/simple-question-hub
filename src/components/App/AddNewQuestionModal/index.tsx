@@ -16,6 +16,7 @@ import { useAppSelector } from 'src/redux/hooks';
 import { questionService } from 'src/api/services/questionService';
 import { IQuestionType } from 'src/types/question';
 import { createNewModal } from 'src/constants/staticTexts/questions';
+import { UUIDv4 } from 'src/utils/uuid-generator';
 
 
 interface IAddNewQuestionModalProps {
@@ -62,11 +63,13 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
         const tempQuestion: IQuestionType = {
             subject: data.subject,
             description: data.description,
-            date: new Date(),
+            date: new Date().toLocaleDateString('fa-IR'),
+            time: new Date().toLocaleTimeString('fa-IR'),
             like: 0,
             dislike: 0,
             answers: [],
-            username: user.username
+            username: user.username,
+            token: UUIDv4()
         }
 
         try{

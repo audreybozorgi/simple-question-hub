@@ -10,10 +10,11 @@
     margin-top: $spacing-5;
 
     .cardHeader {
-        height: 48px;
+        min-height: 48px;
         background-color: #FFF;
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
         border-radius: 8px;
         padding: 0px $spacing-4;
@@ -66,5 +67,19 @@
         flex-direction: row;
         justify-content: flex-end;
         padding: 17px;
+    }
+
+    @media (max-width: 600px) {
+        .cardHeader{
+            .userWrapper {
+                margin-top: $spacing-2;
+            }
+            .detailsWrapper{
+                margin: $spacing-2 0px;
+                .detailsSuffix {
+                    margin-right: 0;
+                }
+            }
+        }
     }
 }

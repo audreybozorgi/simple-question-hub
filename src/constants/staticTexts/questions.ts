@@ -18,4 +18,5 @@ export const question_static_texts: Record<string, string> = {
     submitYourAnswer:           'پاسخ خود را ثبت کنید',
     hour:                       'ساعت',
     date:                       'تاریخ',
+    reactionSaved:              'بازخورد شما ثبت شد',
 }

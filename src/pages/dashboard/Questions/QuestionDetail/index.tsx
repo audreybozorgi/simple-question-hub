@@ -62,6 +62,7 @@ const QuestionDetail: React.FC = () => {
 
     useEffect(() => {
         getQuestionDetails()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     if (loading || !question) return null

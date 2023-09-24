@@ -16,7 +16,7 @@ interface IAddNewAnswerFormProps {
 } 
 
 const AddNewAnswerForm: React.FC<IAddNewAnswerFormProps> = ({ onSubmit }) => {
-    const {control, formState: { errors }, handleSubmit } = useForm<IAnswerForm>({
+    const {control, reset, formState: { errors }, handleSubmit } = useForm<IAnswerForm>({
         defaultValues: {
             description: '',
         },
@@ -24,9 +24,16 @@ const AddNewAnswerForm: React.FC<IAddNewAnswerFormProps> = ({ onSubmit }) => {
         resolver: yupResolver(createNewAnswerValidator()),
     });
 
+    const handleFormSubmit = (data: any) => {
+        onSubmit(data)
+        reset({
+            description: ''
+        })
+    }
+
     return (
         <div className={styles.formWrapper}>
-            <form noValidate onSubmit={handleSubmit(onSubmit)}>
+            <form noValidate onSubmit={handleSubmit(handleFormSubmit)}>
                 <FormFieldWrapper>
                     <label className='form-field-label' htmlFor="subject">
                         {question_static_texts.writeYourAnswer}
@@ -36,7 +43,7 @@ const AddNewAnswerForm: React.FC<IAddNewAnswerFormProps> = ({ onSubmit }) => {
                         control={control}
                         render={({ field }) => (
                             <>
-                                <Textarea onChange={field.onChange} style={{ height: '164px', resize: 'none' }} />
+                                <Textarea onChange={field.onChange} value={field.value} style={{ height: '164px', resize: 'none' }} />
                                 {errors?.description?.message && (
                                     <span className='form-error-text'>
                                         {errors?.description?.message.toString()}
@@ -49,9 +56,9 @@ const AddNewAnswerForm: React.FC<IAddNewAnswerFormProps> = ({ onSubmit }) => {
                 <div className={styles.actionWrapper}>
                     <Button
                         type={BUTTON_CLASS_OPTIONS.SUCCESS}
-                        onClick={handleSubmit(onSubmit)}
+                        onClick={handleSubmit(handleFormSubmit)}
                     >
-                        {question_static_texts.createNewAnswer}
+                        <span>{question_static_texts.createNewAnswer}</span>
                     </Button>
                 </div>
             </form>

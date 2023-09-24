@@ -40,7 +40,6 @@
             font-size: 24px;
             font-style: normal;
             font-weight: 800;
-            line-height: 9;
         }
 
         .answerCardsWrapper {
@@ -55,6 +54,7 @@
         margin-bottom:  $spacing-10;
 
         .title {
+            margin: 0px;
             color: $naturals-black;
             text-align: right;
             font-family: IRANYekan;
@@ -62,6 +62,19 @@
             font-style: normal;
             font-weight: 800;
             line-height: $spacing-9;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .questionWrapper{
+        margin-top: $spacing-4;
+        padding: 0px $spacing-4;
+        .suffixWrapper{
+            margin-right: $spacing-3;;
+            .reactionWrapper {
+                margin-right: $spacing-1;
+            }
         }
     }
 }

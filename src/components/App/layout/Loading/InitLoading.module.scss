@@ -1,35 +1,7 @@
-
-.general-loading {
-    min-height: 100vh;
+.container{
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 25px;
-}
-
-.loading-wrapper {
-    height: 50vh;
-    display: flex;
     align-items: center;
-    justify-content: center;
-}
-
-.loading {
-    width: 48px;
-    height: 48px;
-    border: 5px solid;
-    border-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    animation: rotation 1s linear infinite;
-}
-
-@keyframes rotation {
-    0% {
-        transform: rotate(0deg)
-    }
-
-    100% {
-        transform: rotate(360deg)
-    }
 }

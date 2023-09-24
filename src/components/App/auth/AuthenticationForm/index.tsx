@@ -62,7 +62,7 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
                     control={control}
                     render={({ field }) => (
                         <>
-                            <Input onChange={field.onChange} style={{ direction: 'ltr' }} />
+                            <Input onChange={field.onChange} value={field.value} style={{ direction: 'ltr' }} />
                             {errors?.username?.message && (
                                 <span className='form-error-text'>
                                     {errors?.username?.message.toString()}
@@ -81,7 +81,7 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
                     control={control}
                     render={({ field }) => (
                         <>
-                            <Input onChange={field.onChange} type='password' style={{ direction: 'ltr' }} />
+                            <Input onChange={field.onChange} value={field.value} type='password' style={{ direction: 'ltr' }} />
                             {errors?.password?.message && (
                                 <span className='form-error-text'>
                                     {errors?.password?.message.toString()}

@@ -1,10 +1,10 @@
 import styles from './InitLoading.module.scss';
 
-const InitLoading = () => { //TODO: fix loading
+const InitLoading = () => {
     return (
-        <>
-            در حال لود...
-        </>
+        <div className={styles.container}>
+            <span>Loading...</span>
+        </div>
     );
 };
 export default InitLoading;

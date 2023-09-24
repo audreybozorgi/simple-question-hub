@@ -50,6 +50,22 @@
     }
 }
 
+@media (max-width: 600px) {
+    .userWrapper{
+        margin: $spacing-2;
+        .dropdown {
+            >span {
+                font-size: 12px;
+            }
+        }
+    }
+}
+@media (max-width: 500px) {
+    .userWrapper{
+        margin: $spacing-1;
+    }
+}
+
 .dropdownBackLayout {
     position: fixed;
     top: 0px;

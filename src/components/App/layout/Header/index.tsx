@@ -16,8 +16,8 @@ const Header: React.FC<IHeaderProps> = ({ title }) => {
     const [show, setShow] = useState<boolean>(false)
 
     return (
-        <div className={styles.header_container}>
-            <span className={styles.title}>{title}</span>
+        <div className={styles.headerContainer}>
+            <p className={styles.title}>{title}</p>
             <div className={styles.actionsWrapper}>
                 <Button
                     type={BUTTON_CLASS_OPTIONS.SUCCESS}

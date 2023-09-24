@@ -1,3 +1,5 @@
+@import 'src/assets/styles/colors';
+@import 'src/assets/styles/variables';
 
 .container {
     display: flex;
@@ -11,6 +13,11 @@
         >h1{
             font-family: iranYekan;
             font-weight: 400;
+        }
+    }
+    @media (max-width: 600px) {
+        >div{
+            width: 90vw;
         }
     }
 }

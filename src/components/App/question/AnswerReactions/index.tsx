@@ -9,6 +9,8 @@ import { questionService } from 'src/api/services/questionService'
 import { question_static_texts } from 'src/constants/staticTexts/questions'
 import { useParams } from 'react-router-dom'
 import { IAnswer, IAnswerReactionsTypes } from 'src/types/answer'
+import { toast } from 'src/utils/toast'
+import { TOAST_STATUS } from 'src/enums/kit/toast'
 
 interface IParams {
     [id: string]: string;
@@ -36,6 +38,10 @@ const AnswerReactions: React.FC<IAnswerReactionsTypes> = ({ question, answer, up
                 ...question!,
                 answers: tempAnswers
             })
+            toast.fire({
+                icon: TOAST_STATUS.SUCCESS,
+                title: question_static_texts.reactionSaved,
+            });
         } catch (error) {
             console.error(error)
         }

@@ -76,7 +76,7 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
     }
 
     return (
-        <Modal isOpen={show} style={customStyles}>
+        <Modal ariaHideApp={false} isOpen={show} style={customStyles}>
             <div className={styles.modalContent}>
                 <div className={styles.header}>
                     <span>{question_static_texts.createNewQuestion}</span>
@@ -95,7 +95,7 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
                                 control={control}
                                 render={({ field }) => (
                                     <>
-                                        <Input onChange={field.onChange} />
+                                        <Input onChange={field.onChange} value={field.value}/>
                                         {errors?.subject?.message && (
                                             <span className='form-error-text'>
                                                 {errors?.subject?.message.toString()}
@@ -114,7 +114,7 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
                                 control={control}
                                 render={({ field }) => (
                                     <>
-                                        <Textarea onChange={field.onChange} style={{ height: '164px', resize: 'none' }} />
+                                        <Textarea onChange={field.onChange} value={field.value} style={{ height: '164px', resize: 'none' }} />
                                         {errors?.description?.message && (
                                             <span className='form-error-text'>
                                                 {errors?.description?.message.toString()}

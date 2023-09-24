@@ -1,25 +1,39 @@
 @import 'src/assets/styles/colors';
 @import 'src/assets/styles/variables';
 
-.header_container {
+.headerContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 68px;
+    min-height: 68px;
     background-color: $header-background-color;
     padding: 0px $spacing-14;
     position: sticky;
     top: 0px;
+    flex-wrap: wrap;
 
     .title {
         color: $naturals-black;
         text-align: right;
         font-family: IRANYekan;
-        font-size: $spacing-6;
+        font-size: 24px;
         font-style: normal;
         font-weight: 800;
         line-height: $spacing-9;
+    }
+
+    @media (max-width: 600px) {
+        .title {
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+        }
+    }
+    @media (max-width: 500px) {
+        .title {
+            font-size: 18px;
+        }
     }
 
     .actionsWrapper {
@@ -30,5 +44,17 @@
         .buttonText {
             margin-right: $spacing-2;
         }
+    }
+    @media (max-width: 600px) {
+        .actionsWrapper{
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .headerContainer{
+        padding: 0 $spacing-4;
     }
 }

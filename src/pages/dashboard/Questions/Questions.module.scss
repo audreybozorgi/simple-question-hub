@@ -2,7 +2,7 @@
 @import 'src/assets/styles/variables';
 
 .questionsWrapper {
-    padding: 32px 56px 32px 56px;
+    padding: $spacing-8 $spacing-14 $spacing-8 $spacing-14;
 
     .nothingExist {
         margin-right: $spacing-1;
@@ -30,6 +30,15 @@
             font-style: normal;
             font-weight: 700;
             line-height: $spacing-6;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .questionsWrapper{
+        padding: $spacing-4 $spacing-7 $spacing-4 $spacing-7;
+        .suffixWrapper{
+            margin-right: $spacing-4;
         }
     }
 }

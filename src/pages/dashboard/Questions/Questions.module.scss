@@ -1,8 +1,20 @@
 @import 'src/assets/styles/colors';
+@import 'src/assets/styles/variables';
 
 .questionsWrapper {
-    margin-top: 32px; // TODO: all pixels should be variable
-    padding: 0px 56px;
+    padding: 32px 56px 32px 56px;
+
+    .nothingExist {
+        margin-right: $spacing-1;
+        color: $gray-dark;
+        font-family: IranYekan;
+        text-align: right;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: $spacing-6;
+        text-align: center;
+    }
 
     .suffixWrapper {
         display: flex;
@@ -10,13 +22,14 @@
         align-items: center;
 
         >span {
-            margin-right: 4px;
-            color: var(--gray-dark, #777);
+            margin-right: $spacing-1;
+            color: $gray-dark;
             text-align: right;
             font-size: 12px;
+            font-family: IranYekan;
             font-style: normal;
             font-weight: 700;
-            line-height: 24px;
+            line-height: $spacing-6;
         }
     }
 }

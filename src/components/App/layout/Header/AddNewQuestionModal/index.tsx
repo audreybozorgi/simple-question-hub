@@ -11,11 +11,14 @@ import Input from 'src/components/kit/Input';
 import Textarea from 'src/components/kit/Textarea';
 import Button from 'src/components/kit/Button';
 import { BUTTON_CLASS_OPTIONS } from 'src/enums/kit/button';
-import { useAppSelector } from 'src/redux/hooks';
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
 import { questionService } from 'src/api/services/questionService';
 import { IQuestionType } from 'src/types/question';
 import { UUIDv4 } from 'src/utils/uuid-generator';
 import { question_static_texts } from 'src/constants/staticTexts/questions';
+import { handleSaveQuestions } from 'src/redux/features/questionSlice'
+import { toast } from 'src/utils/toast';
+import { TOAST_STATUS } from 'src/enums/kit/toast';
 
 interface IAddNewQuestionModalProps {
     show: boolean,
@@ -43,6 +46,7 @@ const customStyles = {
 };
 const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide }) => {
     const user = useAppSelector(state => state.userSlice)
+    const dispatch = useAppDispatch()
 
     const {
         control,
@@ -65,12 +69,17 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
             time: new Date().toLocaleTimeString('fa-IR'),
             answers: [],
             username: user.username,
-            uuid: UUIDv4()
+            uuid: UUIDv4(),
         }
 
         try {
             await questionService.addNewQuestion(tempQuestion)
-            // TODO:  we should also add new question to the list, So questions should save in redux slice.
+            let res = await questionService.getAll()
+            dispatch(handleSaveQuestions(res.data))
+            toast.fire({
+                icon: TOAST_STATUS.SUCCESS,
+                title: question_static_texts.newQuestionAdded,
+            });
             onHide()
         } catch (error) {
             console.error(error)

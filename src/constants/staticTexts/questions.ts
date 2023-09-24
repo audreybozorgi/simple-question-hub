@@ -13,4 +13,7 @@ export const question_static_texts: Record<string, string> = {
     subjectIsMandatory: 'موضوع اجباری است',
     descriptionIsMandatory: 'متن سوال اجباری است',
     seeDetail: 'مشاهده جزییات',
+    nothingFound: 'هیج سوالی یافت نشد',
+    newQuestionAdded: 'سوال جدید با موفقیت اضافه شد',
+    submitYourAnswer: 'پاسخ خود را ثبت کنید',
 }

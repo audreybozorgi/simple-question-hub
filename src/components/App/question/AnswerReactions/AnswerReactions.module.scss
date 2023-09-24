@@ -1,0 +1,21 @@
+@import 'src/assets/styles/colors';
+@import 'src/assets/styles/variables';
+
+.text {
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    margin-right: 8px;
+}
+
+.sadButtonText {
+    @extend .text;
+    color: $red;
+}
+
+.happyButtonText {
+    @extend .text;
+    color: $light-green
+}

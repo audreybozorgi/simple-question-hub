@@ -13,23 +13,13 @@ import { UUIDv4 } from 'src/utils/uuid-generator'
 import { question_static_texts } from 'src/constants/staticTexts/questions'
 import Happy from 'src/assets/icons/Happy'
 import Sad from 'src/assets/icons/Sad'
-import Button from 'src/components/kit/Button'
-import { BUTTON_CLASS_OPTIONS } from 'src/enums/kit/button'
-
-interface IQuestionDetailProps {
-
-}
+import AnswerReactions from 'src/components/app/question/AnswerReactions'
 
 interface IParams {
     [id: string]: string;
 }
 
-enum REACTIONS {
-    LIKE = 'LIKE',
-    DISLIKE = 'DISLIKE'
-}
-
-const QuestionDetail: React.FC<IQuestionDetailProps> = () => {
+const QuestionDetail: React.FC = () => {
     const { id } = useParams<IParams>()
     const user = useAppSelector(state => state.userSlice)
     const [question, setQuestion] = useState<IQuestionPayload>()
@@ -38,7 +28,6 @@ const QuestionDetail: React.FC<IQuestionDetailProps> = () => {
     const getQuestionDetails = async () => {
         try {
             let res = await questionService.getOne(Number(id))
-            console.log('res', res);
             setQuestion(res.data)
         } catch (error) {
             console.error(error)
@@ -59,7 +48,7 @@ const QuestionDetail: React.FC<IQuestionDetailProps> = () => {
         }
         const tempAnswers = [...question?.answers!, tempAnswer]
 
-        try { // TODO: set loading for all API calls
+        try {
             await questionService.addNewAnswer(Number(id), { answers: tempAnswers })
             setQuestion({
                 ...question!,
@@ -70,29 +59,7 @@ const QuestionDetail: React.FC<IQuestionDetailProps> = () => {
         }
     }
 
-    const handleReaction = async (type: REACTIONS, questionId: number, targetAnswer: IAnswer) => {
-        let tempAnswers = structuredClone(question?.answers) as IAnswer[]
 
-        tempAnswers = tempAnswers?.map((tempAnswer: IAnswer) => {
-            if(tempAnswer.uuid === targetAnswer.uuid) {
-                const updatedTempAnswer = {...tempAnswer} as IAnswer
-                
-                if(type === REACTIONS.LIKE) updatedTempAnswer['like'] = tempAnswer.like +=1
-                else if(type === REACTIONS.DISLIKE) updatedTempAnswer['dislike'] = tempAnswer.dislike +=1
-            }
-            return tempAnswer
-        })
-        
-        try{
-            await questionService.updateAnswers(questionId, {answers: tempAnswers})
-            setQuestion({
-                ...question!,
-                answers: tempAnswers
-            })
-        }catch(error){
-            console.error(error)
-        }
-    }
 
     useEffect(() => {
         getQuestionDetails()
@@ -117,51 +84,43 @@ const QuestionDetail: React.FC<IQuestionDetailProps> = () => {
                     }
                 />
                 <div className={styles.answersWrapper}>
-                    <span className={styles.title}>{question_static_texts.answers}</span>
-                    <div className={styles.answerCardsWrapper}>
-                        {question.answers.map((answer: IAnswer) =>
-                            <ContentCard
-                                key={answer.uuid}
-                                title={answer.username}
-                                description={answer.description}
-                                date={answer.date}
-                                time={answer.time}
-                                headerSuffix={
-                                    <div className={styles.suffixWrapper}>
-                                        <div className={styles.reactionWrapper}>
-                                            <Happy />
-                                            <span>{answer.like}</span>
-                                        </div>
-                                        <div className={styles.reactionWrapper}>
-                                            <Sad />
-                                            <span>{answer.dislike}</span>
-                                        </div>
-                                    </div>
-                                }
-                                cardAction={
-                                    <>
-                                        <Button
-                                            type={BUTTON_CLASS_OPTIONS.BORDERED_OUTLINE}
-                                            onClick={() => handleReaction(REACTIONS.LIKE, Number(id), answer)}
-                                        >
-                                            <Happy />
-                                            <span className={styles.happyButtonText}>{question_static_texts.answerWasGood}</span>
-                                        </Button>
-                                        <Button
-                                            type={BUTTON_CLASS_OPTIONS.BORDERED_OUTLINE}
-                                            onClick={() => handleReaction(REACTIONS.DISLIKE, Number(id), answer)}
-                                            style={{ marginRight: '12px' }}
-                                        >
-                                            <Sad fill='#F16063'/>
-                                            <span className={styles.sadButtonText}>{question_static_texts.answerWasBad}</span>
-                                        </Button>
-                                    </>
-                                }
-                            />
-                        )}
-                    </div>
+                    {question.answers.length > 0 &&
+                        <>
+                            <span className={styles.title}>{question_static_texts.answers}</span>
+                            <div className={styles.answerCardsWrapper}>
+                                {question.answers.map((answer: IAnswer) =>
+                                    <ContentCard
+                                        key={answer.uuid}
+                                        title={answer.username}
+                                        description={answer.description}
+                                        date={answer.date}
+                                        time={answer.time}
+                                        headerSuffix={
+                                            <div className={styles.suffixWrapper}>
+                                                <div className={styles.reactionWrapper}>
+                                                    <Happy />
+                                                    <span>{answer.like}</span>
+                                                </div>
+                                                <div className={styles.reactionWrapper}>
+                                                    <Sad />
+                                                    <span>{answer.dislike}</span>
+                                                </div>
+                                            </div>
+                                        }
+                                        cardAction={
+                                            <AnswerReactions
+                                                question={question}
+                                                answer={answer}
+                                                updateQuestion={((question33: IQuestionPayload) => setQuestion(question33))}
+                                            />
+                                        }
+                                    />
+                                )}
+                            </div>
+                        </>
+                    }
                     <div className={styles.addNewAnswerWrapper}>
-                        <span>پاسخ خود را ثبت کنید</span>
+                        <span className={styles.title}>{question_static_texts.submitYourAnswer}</span>
                         <AddNewAnswerForm onSubmit={onSubmit} />
                     </div>
                 </div>

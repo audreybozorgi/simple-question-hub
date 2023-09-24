@@ -9,6 +9,8 @@
     height: 68px;
     background-color: $header-background-color;
     padding: 0px $spacing-14;
+    position: sticky;
+    top: 0px;
 
     .title {
         color: $naturals-black;

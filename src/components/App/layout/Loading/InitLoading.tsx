@@ -1,10 +1,10 @@
-import style from './InitLoading.module.scss';
+import styles from './InitLoading.module.scss';
 
-const InitLoading = ({ status = true, height = '50vh' }) => {
+const InitLoading = () => {
     return (
-        <div className={style['loading-wrapper']} style={{ height }}>
-            <div className={style['loading']}></div>
-        </div>
+        <>
+            در حال لود...
+        </>
     );
 };
 export default InitLoading;

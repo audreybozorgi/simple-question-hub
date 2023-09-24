@@ -1,8 +1,7 @@
-import { IAnswer, IQuestionPayload } from 'src/types/question';
 import styles from './ContentCard.module.scss';
 import { staticImages } from 'src/assets/staticImages';
-import Date from '../Date';
 import { ReactNode } from 'react';
+import Date from './Date';
 
 
 interface IContentCardProps { 
@@ -29,7 +28,7 @@ const ContentCard: React.FC<IContentCardProps> = ({ title, description, date, ti
                 </div>
             </div>
             <div className={styles.cardBody}>
-                <span>{description}</span>
+                <p>{description}</p>
             </div>
             {cardAction &&
                 <div className={styles.cardAction}>

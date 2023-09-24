@@ -1,11 +1,16 @@
-
 @import 'src/assets/styles/colors';
+@import 'src/assets/styles/variables';
 
-.input_style{
+.input_style {
     border-radius: 8px;
     outline: none;
     border: 1px solid $light-gray;
-    padding: 12px; //TODO: all spaces should be variable
+    padding: $spacing-3;
+    color: ﷼naturals-black;
+    text-align: right;
+    font-family: IRANYekan;
     font-size: 14px;
-    font-weight: 600;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
 }

@@ -3,11 +3,10 @@ import React from 'react';
 import styles from './AddNewQuestionModal.module.scss'
 import Modal from 'react-modal';
 import Close from 'src/assets/icons/Close';
-import { header } from 'src/constants/staticTexts/header';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { validationSchema } from './validation-schema';
-import FormFieldWrapper from '../FormFieldWrapper';
+import FormFieldWrapper from '../../../../kit/FormFieldWrapper';
 import Input from 'src/components/kit/Input';
 import Textarea from 'src/components/kit/Textarea';
 import Button from 'src/components/kit/Button';
@@ -15,9 +14,8 @@ import { BUTTON_CLASS_OPTIONS } from 'src/enums/kit/button';
 import { useAppSelector } from 'src/redux/hooks';
 import { questionService } from 'src/api/services/questionService';
 import { IQuestionType } from 'src/types/question';
-import { createNewModal } from 'src/constants/staticTexts/questions';
 import { UUIDv4 } from 'src/utils/uuid-generator';
-
+import { question_static_texts } from 'src/constants/staticTexts/questions';
 
 interface IAddNewQuestionModalProps {
     show: boolean,
@@ -70,19 +68,25 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
             uuid: UUIDv4()
         }
 
-        try{
+        try {
             await questionService.addNewQuestion(tempQuestion)
+            // TODO:  we should also add new question to the list, So questions should save in redux slice.
             onHide()
-        }catch(error) {
+        } catch (error) {
             console.error(error)
         }
+    }
+
+    const handleCancel = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault()
+        onHide()
     }
 
     return (
         <Modal isOpen={show} style={customStyles}>
             <div className={styles.modalContent}>
                 <div className={styles.header}>
-                    <span>{createNewModal.createNewQuestion}</span>
+                    <span>{question_static_texts.createNewQuestion}</span>
                     <div onClick={onHide}>
                         <Close />
                     </div>
@@ -91,7 +95,7 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
                     <form noValidate onSubmit={handleSubmit(onSubmit)}>
                         <FormFieldWrapper>
                             <label className='form-field-label' htmlFor="subject">
-                                {createNewModal.subject}
+                                {question_static_texts.subject}
                             </label>
                             <Controller
                                 name="subject"
@@ -110,14 +114,14 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
                         </FormFieldWrapper>
                         <FormFieldWrapper>
                             <label className='form-field-label' htmlFor="description">
-                                {createNewModal.description}
+                                {question_static_texts.description}
                             </label>
                             <Controller
                                 name="description"
                                 control={control}
                                 render={({ field }) => (
                                     <>
-                                        <Textarea onChange={field.onChange} style={{height: '164px', resize: 'none'}}/>
+                                        <Textarea onChange={field.onChange} style={{ height: '164px', resize: 'none' }} />
                                         {errors?.description?.message && (
                                             <span className='form-error-text'>
                                                 {errors?.description?.message.toString()}
@@ -128,17 +132,17 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
                             />
                         </FormFieldWrapper>
                         <div className={styles.actionWrapper}>
-                            <Button 
-                                type={BUTTON_CLASS_OPTIONS.OUTLINE} 
-                                onClick={(e) => {e.preventDefault();onHide()}}
+                            <Button
+                                type={BUTTON_CLASS_OPTIONS.OUTLINE}
+                                onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleCancel(e)}
                             >
-                                {createNewModal.cancel}
+                                <span>{question_static_texts.cancel}</span>
                             </Button>
-                            <Button 
-                                type={BUTTON_CLASS_OPTIONS.SUCCESS} 
+                            <Button
+                                type={BUTTON_CLASS_OPTIONS.SUCCESS}
                                 onClick={handleSubmit(onSubmit)}
-                            >   
-                                {createNewModal.create}
+                            >
+                                <span>{question_static_texts.create}</span>
                             </Button>
                         </div>
                     </form>

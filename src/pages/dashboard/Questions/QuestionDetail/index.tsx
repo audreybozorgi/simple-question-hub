@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import styles from './Question.module.scss'
 import { useParams } from 'react-router-dom'
 import { questionService } from 'src/api/services/questionService'
-import ContentCard from 'src/components/app/ContentCard'
-import Header from 'src/components/app/Header'
-import { header } from 'src/constants/staticTexts/header'
+import ContentCard from 'src/components/app/question/ContentCard'
+import Header from 'src/components/app/layout/Header'
+import { header_static_text } from 'src/constants/staticTexts/header'
 import { IAnswer, IQuestionPayload } from 'src/types/question'
 import Answer from 'src/assets/icons/Answer';
-import AddNewAnswerForm from 'src/components/app/AddNewAnswerForm'
+import AddNewAnswerForm from 'src/components/app/question/AddNewAnswerForm'
 import { useAppSelector } from 'src/redux/hooks'
 import { UUIDv4 } from 'src/utils/uuid-generator'
 import { question_static_texts } from 'src/constants/staticTexts/questions'
@@ -102,7 +102,7 @@ const QuestionDetail: React.FC<IQuestionDetailProps> = () => {
 
     return (
         <>
-            <Header title={header.questionDetail} />
+            <Header title={header_static_text.questionDetail} />
             <div className={styles.questionWrapper}>
                 <ContentCard
                     title={question.subject}

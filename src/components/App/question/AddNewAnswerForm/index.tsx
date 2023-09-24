@@ -4,7 +4,7 @@ import styles from './AddNewAnswerForm.module.scss'
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { validationSchema } from './validation-schema';
-import FormFieldWrapper from '../FormFieldWrapper';
+import FormFieldWrapper from '../../../kit/FormFieldWrapper';
 import Textarea from 'src/components/kit/Textarea';
 import Button from 'src/components/kit/Button';
 import { BUTTON_CLASS_OPTIONS } from 'src/enums/kit/button';

@@ -1,5 +1,7 @@
+@import 'src/assets/styles/colors';
+@import 'src/assets/styles/variables';
 
-.cardWrapper{
+.cardWrapper {
     min-height: 155px;
     width: 100%;
     background-color: #F9F9F9;
@@ -7,7 +9,7 @@
     border-radius: 8px;
     margin-top: 20px;
 
-    .cardHeader{
+    .cardHeader {
         height: 48px;
         background-color: #FFF;
         display: flex;
@@ -16,30 +18,50 @@
         border-radius: 8px;
         padding: 0px 16px;
 
-        .userWrapper{
+        .userWrapper {
             display: flex;
             flex-direction: row;
             align-items: center;
 
-            >span{
+            >span {
                 margin-right: 16px;
-            }
-        }   
+                color: $naturals-black;
+                text-align: right;
+                font-family: IRANYekan;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 24px;
 
-        .detailsWrapper{
+            }
+        }
+
+        .detailsWrapper {
             display: flex;
             flex-direction: row;
             align-items: center;
 
-            .detailsSuffix{
+            .detailsSuffix {
                 margin-right: 20px;
             }
         }
     }
-    .cardBody{
+
+    .cardBody {
         padding: 13px 17px 13px 17px;
+
+        >p {
+            color: $naturals-black;
+            text-align: right;
+            font-family: IRANYekan;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+        }
     }
-    .cardAction{
+
+    .cardAction {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;

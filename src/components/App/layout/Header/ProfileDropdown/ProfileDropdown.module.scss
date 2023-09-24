@@ -1,0 +1,62 @@
+@import 'src/assets/styles/colors';
+@import 'src/assets/styles/variables';
+
+.userWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: $spacing-10;
+    position: relative;
+    cursor: pointer;
+
+    .username {
+        margin-right: $spacing-3;
+        margin-left: $spacing-4;
+
+        >span {
+            color: $gray-darker;
+            text-align: right;
+            font-family: IRANYekan;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+        }
+    }
+
+    .dropdown {
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        border-radius: 8px;
+        padding: $spacing-2;
+        min-height: 70px;
+        z-index: 2;
+        box-shadow: 0px 0px 5px $medium-gray;
+        background-color: $white;
+        cursor: default;
+
+        >span {
+            color: $red;
+            text-align: right;
+            font-family: IRANYekan;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+            margin-right: $spacing-2;
+            cursor: pointer;
+        }
+    }
+}
+
+.dropdownBackLayout {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+    z-index: 1;
+    cursor: default;
+}

@@ -35,6 +35,7 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
         control,
         formState: { errors },
         handleSubmit,
+        reset,
     } = useForm<ICreateNewQuestionForm>({
         defaultValues: {
             subject: '',
@@ -64,6 +65,10 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
                 icon: TOAST_STATUS.SUCCESS,
                 title: question_static_texts.newQuestionAdded,
             });
+            reset({
+                subject: '',
+                description: '',
+            })
             onHide()
         } catch (error) {
             console.error(error)

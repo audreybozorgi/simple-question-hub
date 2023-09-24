@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Register.module.scss'
-import AuthenticationForm from 'src/components/app/auth/AuthenticationForm';
+import AuthenticationForm from 'src/components/application/auth/AuthenticationForm';
 import ROUTE_CONSTANTS from 'src/constants/router/route-constants';
 import { IAuthForm } from 'src/types/auth/auth-form';
 import { authService } from 'src/api/services/authService';

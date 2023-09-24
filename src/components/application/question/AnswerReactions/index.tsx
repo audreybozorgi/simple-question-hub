@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './AnswerReactions.module.scss'
-import Button from 'src/components/kit/Button'
+import Button from 'src/components/myKit/Button'
 import { BUTTON_CLASS_OPTIONS } from 'src/enums/kit/button'
 import Happy from 'src/assets/icons/Happy'
 import Sad from 'src/assets/icons/Sad'

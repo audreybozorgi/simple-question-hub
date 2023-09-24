@@ -1,6 +1,6 @@
 
 import styles from './Header.module.scss'
-import Button from 'src/components/myKit/Button';
+import Button from 'src/components/kit/Button';
 import Plus from 'src/assets/icons/Plus';
 import AddNewQuestionModal from './AddNewQuestionModal';
 import { BUTTON_CLASS_OPTIONS } from 'src/enums/kit/button';

@@ -1,55 +1,52 @@
 import React from 'react'
-import FormFieldWrapper from '../FormFieldWrapper'
-import { Controller, useForm } from 'react-hook-form'
-import Input from 'src/components/Kit/Input'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { validationSchema } from './validation-schema'
-import Button from 'src/components/Kit/Button'
-import { IAuthForm } from 'src/types/auth/auth-form'
-import { AUTH_FORM_TYPES } from 'src/enums/auth/auth-form-types'
+import Input from 'src/components/kit/Input'
+import Button from 'src/components/kit/Button'
 import ROUTE_CONSTANTS from 'src/constants/router/route-constants'
-import { useNavigate } from 'react-router-dom'
 import styles from './AuthenticationForm.module.scss'
-import { authentication } from 'src/constants/staticTexts/authentication'
+import FormFieldWrapper from '../../FormFieldWrapper'
+import { Controller, useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { IAuthForm } from 'src/types/auth/auth-form'
+import { AUTH_FORM } from 'src/enums/auth/auth-form'
+import { useNavigate } from 'react-router-dom'
+import { authentication_static_text } from 'src/constants/staticTexts/authentication'
+import { authFormValidator } from './validation-schema'
 
 interface IAuthenticationFormProps {
     formActionProperties: {
         onFormSubmit: (data: IAuthForm) => void;
         text: string;
+        loading?: boolean;
     };
-    type: AUTH_FORM_TYPES
+    type: AUTH_FORM
 }
+
 const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProperties, type }) => {
     const navigate = useNavigate();
-
-    const {
-        control,
-        formState: { errors },
-        handleSubmit,
-    } = useForm<IAuthForm>({
+    const { control, formState: { errors }, handleSubmit } = useForm<IAuthForm>({
         defaultValues: {
             username: '',
             password: '',
         },
         mode: 'all',
-        resolver: yupResolver(validationSchema()),
+        resolver: yupResolver(authFormValidator()),
     });
 
     const routerSwitchHandler = () => {
         switch (type) {
-            case AUTH_FORM_TYPES.REGISTER:
+            case AUTH_FORM.REGISTER:
                 return <span
                     className={styles.routerSwitchAction}
                     onClick={() => navigate(ROUTE_CONSTANTS.AUTH.LOGIN.ABSOLUTE)}
                 >
-                    {authentication.haveAccount}
+                    {authentication_static_text.haveAccount}
                 </span>
-            case AUTH_FORM_TYPES.LOGIN:
+            case AUTH_FORM.LOGIN:
                 return <span
                     className={styles.routerSwitchAction}
                     onClick={() => navigate(ROUTE_CONSTANTS.AUTH.REGISTER.ABSOLUTE)}
                 >
-                   {authentication.createAccount}
+                    {authentication_static_text.createAccount}
                 </span>
         }
     }
@@ -58,14 +55,14 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
         <form noValidate onSubmit={handleSubmit(formActionProperties.onFormSubmit)}>
             <FormFieldWrapper>
                 <label className='form-field-label' htmlFor="username">
-                    {authentication.username}
+                    {authentication_static_text.username}
                 </label>
                 <Controller
                     name="username"
                     control={control}
                     render={({ field }) => (
                         <>
-                            <Input onChange={field.onChange} />
+                            <Input onChange={field.onChange} style={{ direction: 'ltr' }} />
                             {errors?.username?.message && (
                                 <span className='form-error-text'>
                                     {errors?.username?.message.toString()}
@@ -77,14 +74,14 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
             </FormFieldWrapper>
             <FormFieldWrapper>
                 <label className='form-field-label' htmlFor="password">
-                    {authentication.password}
+                    {authentication_static_text.password}
                 </label>
                 <Controller
                     name="password"
                     control={control}
                     render={({ field }) => (
                         <>
-                            <Input onChange={field.onChange} type='password' />
+                            <Input onChange={field.onChange} type='password' style={{ direction: 'ltr' }} />
                             {errors?.password?.message && (
                                 <span className='form-error-text'>
                                     {errors?.password?.message.toString()}
@@ -98,11 +95,12 @@ const AuthenticationForm: React.FC<IAuthenticationFormProps> = ({ formActionProp
                 {routerSwitchHandler()}
             </FormFieldWrapper>
             <FormFieldWrapper>
-                <Button 
-                    style={{height: '45px'}} 
+                <Button
+                    style={{ height: '45px' }}
                     onClick={() => handleSubmit(formActionProperties.onFormSubmit)}
+                    disabled={formActionProperties.loading}
                 >
-                    {formActionProperties.text}
+                    <span>{formActionProperties.text}</span>
                 </Button>
             </FormFieldWrapper>
         </form>

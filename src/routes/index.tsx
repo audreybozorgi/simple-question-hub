@@ -3,7 +3,7 @@ import { Routes as RoutesWrapper, Route, Navigate } from 'react-router-dom';
 import ROUTE_CONSTANTS from 'src/constants/router/route-constants';
 import AuthLayout from 'src/layouts/AuthLayout';
 import DashboardLayout from 'src/layouts/DashboardLayout/index';
-import InitLoading from 'src/components/App/Loading/InitLoading';
+import InitLoading from 'src/components/app/Loading/InitLoading';
 
 const Login = Loader(lazy(() => import('src/pages/auth/Login')));
 const Register = Loader(lazy(() => import('src/pages/auth/Register')));

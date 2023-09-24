@@ -3,10 +3,6 @@ const ROUTE_CONSTANTS = {
         RELATIVE: '/',
         ABSOLUTE: '/',
     },
-    ROOT_STAR: {
-        RELATIVE: '/*',
-        ABSOLUTE: '/*',
-    },
     AUTH: {
         ROOT: {
             RELATIVE: 'auth',
@@ -36,16 +32,12 @@ const ROUTE_CONSTANTS = {
                     RELATIVE: 'questions/:id',
                     ABSOLUTE: '/dashboard/questions/:id',
                 },
-                DETAILS_ID: (id: number) => ({
+                DETAILS_BY_ID: (id: number) => ({
                     RELATIVE: `questions/${id}`,
                     ABSOLUTE: `/dashboard/questions/${id}`,
                 }),
             },
         },
-    },
-    NOT_FOUND: {
-        RELATIVE: 'not-found',
-        ABSOLUTE: '/not-found',
     },
 };
 

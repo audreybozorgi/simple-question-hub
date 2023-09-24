@@ -1,8 +1,10 @@
+@import 'src/assets/styles/colors';
 
 .routerSwitchAction{
     cursor: pointer;
-    color: #000;
+    color: $black;
     opacity: 0.8;
+    font-family: IranYekan;
 }
 
 .routerSwitchAction:hover {

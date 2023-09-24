@@ -1,5 +1,5 @@
 
-export const authentication: Record<string, string> = {
+export const authentication_static_text: Record<string, string> = {
     welcomeBack: 'خوش آمدید',
     haveAccount: 'هم اکنون حساب کاربری دارید',
     createAccount: 'ساختن حساب کاربری',

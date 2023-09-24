@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import styles from './index.module.scss'
-import { BUTTON_CLASS_OPTIONS } from 'src/enums/button';
+import { BUTTON_CLASS_OPTIONS } from 'src/enums/kit/button';
 
 interface IButtonProps {
     style?: Record<string, string>;

@@ -34,7 +34,11 @@ const Register: React.FC = () => {
                 icon: TOAST_STATUS.SUCCESS,
                 title: authentication_static_text.userCreateSuccessfully,
             });
-        } catch (error) {
+        } catch (error: any) {
+            toast.fire({
+                icon: TOAST_STATUS.ERROR,
+                title: authentication_static_text.pleaseRunYourServer,
+            });
             console.error(error)
         } finally{
             setLoading(false) 

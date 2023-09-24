@@ -24,7 +24,7 @@ const AddNewAnswerForm: React.FC<IAddNewAnswerFormProps> = ({ onSubmit }) => {
         resolver: yupResolver(createNewAnswerValidator()),
     });
 
-    const handleFormSubmit = (data: any) => {
+    const handleFormSubmit = (data: IAnswerForm) => {
         onSubmit(data)
         reset({
             description: ''

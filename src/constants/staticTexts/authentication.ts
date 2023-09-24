@@ -12,4 +12,5 @@ export const authentication_static_text: Record<string, string> = {
     userNotFound:               'کاربر یافت نشد',
     usernameIsMandatory:        'نام کاربری اجباری است',
     passwordIsMandatory:        'رمز عبور اجباری است',   
+    pleaseRunYourServer:        'Please run your server by "yarn server" in terminal',   
 }

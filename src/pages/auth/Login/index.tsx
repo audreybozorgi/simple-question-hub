@@ -36,6 +36,10 @@ const Login: React.FC = () => {
                 });
             }
         } catch (error) {
+            toast.fire({
+                icon: TOAST_STATUS.ERROR,
+                title: authentication_static_text.pleaseRunYourServer,
+            });
             console.error(error)
         } finally {
             setLoading(false)

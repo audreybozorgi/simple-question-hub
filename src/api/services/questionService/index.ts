@@ -15,10 +15,7 @@ export const questionService = {
     addNewAnswer(questionId: number, data: {answers: IAnswer[]}) {
         return AxiosInstance.patch(API_ROUTES.QUESTION.ADD_NEW_ANSWER(questionId), data);
     },
-    likeAnswer(questionId: number, answersId: string, numberOfReactions: number) {
-        return AxiosInstance.get(API_ROUTES.QUESTION.LIKE_ANSWER(questionId));
+    updateAnswers(questionId: number, data: {answers: IAnswer[]}) {
+        return AxiosInstance.patch(API_ROUTES.QUESTION.UPDATE_ANSWERS(questionId), data);
     },
-    // dislikeAnswer(questionId: number, answersId: string, numberOfReactions: number) {
-    //     return AxiosInstance.patch(API_ROUTES.QUESTION.DISLIKE_ANSWER(questionId, answersId), {dislike: numberOfReactions});
-    // },
 };

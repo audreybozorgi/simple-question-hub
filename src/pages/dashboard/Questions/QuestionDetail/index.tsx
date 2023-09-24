@@ -24,10 +24,6 @@ interface IParams {
     [id: string]: string;
 }
 
-interface ICreateNewAnswerForm {
-    description: string;
-}
-
 enum REACTIONS {
     LIKE = 'LIKE',
     DISLIKE = 'DISLIKE'
@@ -74,12 +70,25 @@ const QuestionDetail: React.FC<IQuestionDetailProps> = () => {
         }
     }
 
-    const handleReaction = async (type: REACTIONS, questionId: number, answersId: string, answer: IAnswer) => {
-        let targetApi
-        if(type === REACTIONS.LIKE) questionService.likeAnswer(questionId, answersId, answer.like)
-        // else questionService.dislikeAnswer(questionId, answersId, answer.like)
+    const handleReaction = async (type: REACTIONS, questionId: number, targetAnswer: IAnswer) => {
+        let tempAnswers = structuredClone(question?.answers) as IAnswer[]
+
+        tempAnswers = tempAnswers?.map((tempAnswer: IAnswer) => {
+            if(tempAnswer.uuid === targetAnswer.uuid) {
+                const updatedTempAnswer = {...tempAnswer} as IAnswer
+                
+                if(type === REACTIONS.LIKE) updatedTempAnswer['like'] = tempAnswer.like +=1
+                else if(type === REACTIONS.DISLIKE) updatedTempAnswer['dislike'] = tempAnswer.dislike +=1
+            }
+            return tempAnswer
+        })
+        
         try{
-            await targetApi
+            await questionService.updateAnswers(questionId, {answers: tempAnswers})
+            setQuestion({
+                ...question!,
+                answers: tempAnswers
+            })
         }catch(error){
             console.error(error)
         }
@@ -133,14 +142,14 @@ const QuestionDetail: React.FC<IQuestionDetailProps> = () => {
                                     <>
                                         <Button
                                             type={BUTTON_CLASS_OPTIONS.BORDERED_OUTLINE}
-                                            onClick={() => handleReaction(REACTIONS.LIKE, Number(id), answer.uuid, answer)}
+                                            onClick={() => handleReaction(REACTIONS.LIKE, Number(id), answer)}
                                         >
                                             <Happy />
                                             <span className={styles.happyButtonText}>{question_static_texts.answerWasGood}</span>
                                         </Button>
                                         <Button
                                             type={BUTTON_CLASS_OPTIONS.BORDERED_OUTLINE}
-                                            onClick={() => handleReaction(REACTIONS.DISLIKE, Number(id), answer.uuid, answer)}
+                                            onClick={() => handleReaction(REACTIONS.DISLIKE, Number(id), answer)}
                                             style={{ marginRight: '12px' }}
                                         >
                                             <Sad fill='#F16063'/>

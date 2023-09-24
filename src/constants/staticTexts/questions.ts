@@ -18,4 +18,5 @@ export const question_static_texts: Record<string, string> = { // TODO: make all
     answers: 'پاسخ ها',
     answerWasBad: 'پاسخ خوب نبود',
     answerWasGood: 'پاسخ خوب بود',
+    answerIsMandatory: 'پاسخ الزامی است',
 }

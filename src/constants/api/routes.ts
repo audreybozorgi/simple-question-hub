@@ -9,7 +9,6 @@ export const API_ROUTES = {
         GET_ALL:        '/question',
         GET_ONE:        (id: number) =>  `/question/${id}`,
         ADD_NEW_ANSWER: (questionId: number) =>  `/question/${questionId}`,
-        LIKE_ANSWER:    (questionId: Number) =>  `/question/${questionId}/answers/`,
-        // DISLIKE_ANSWER: (questionId: number) =>  `/question/${questionId}/answers`,
+        UPDATE_ANSWERS: (questionId: number) =>  `/question/${questionId}`,
     },
 };

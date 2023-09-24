@@ -7,6 +7,7 @@ interface IInputProps {
     value?: string;
     type?: string;
 }
+
 const Input: React.FC<IInputProps> = ({ style, onChange, value, type }) => {
     return <input 
         className={styles.input_style}

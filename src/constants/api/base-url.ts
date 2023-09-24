@@ -1,1 +1,1 @@
-export const baseURL: string = 'http://localhost:19009/'
+export const baseURL: string = 'http://localhost:19009/' //TODO: merge commands to run server and stop it beside react app

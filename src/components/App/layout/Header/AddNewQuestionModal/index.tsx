@@ -19,31 +19,14 @@ import { question_static_texts } from 'src/constants/staticTexts/questions';
 import { handleSaveQuestions } from 'src/redux/features/questionSlice'
 import { toast } from 'src/utils/toast';
 import { TOAST_STATUS } from 'src/enums/kit/toast';
+import { customStyles } from './modal-style';
+import { ICreateNewQuestionForm } from 'src/types/question/question-form';
 
 interface IAddNewQuestionModalProps {
     show: boolean,
     onHide: () => void;
 }
-interface ICreateNewQuestionForm {
-    subject: string;
-    description: string;
-}
 
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        padding: '0px',
-        borderRadius: '8px',
-    },
-    overlay: {
-        background: 'rgba(0, 0, 0, 0.38)'
-    }
-};
 const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide }) => {
     const user = useAppSelector(state => state.userSlice)
     const dispatch = useAppDispatch()
@@ -74,6 +57,7 @@ const AddNewQuestionModal: React.FC<IAddNewQuestionModalProps> = ({ show, onHide
 
         try {
             await questionService.addNewQuestion(tempQuestion)
+
             let res = await questionService.getAll()
             dispatch(handleSaveQuestions(res.data))
             toast.fire({

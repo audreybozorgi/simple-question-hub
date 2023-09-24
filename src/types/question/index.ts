@@ -1,12 +1,5 @@
-export interface IAnswer {
-    username: string;
-    like: number; 
-    dislike: number;
-    date: string;
-    time: string;
-    description: string; 
-    uuid: string;
-}
+import { IAnswer } from "../answer";
+
 
 export interface IQuestionType {
     subject: string;
@@ -19,10 +12,6 @@ export interface IQuestionType {
 }
 
 export interface IQuestionPayload extends IQuestionType {
-    id: number;
-}
-
-export interface IAnswerPayload extends IAnswer {
     id: number;
 }
 

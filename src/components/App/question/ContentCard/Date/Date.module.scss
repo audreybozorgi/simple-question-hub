@@ -12,8 +12,8 @@
         font-size: 12px;
         font-style: normal;
         font-weight: 400;
-        line-height: 24px;
-        margin-left: 4px;
+        line-height: $spacing-6;
+        margin-left: $spacing-2;
     }
 
     .date {
@@ -23,14 +23,14 @@
         font-size: 12px;
         font-style: normal;
         font-weight: 700;
-        line-height: 24px;
-        margin-right: 4px;
+        line-height: $spacing-6;
+        margin-right: $spacing-2;
     }
 
     .divider {
         width: 1px;
         height: 24px;
         background-color: rgba(0, 0, 0, 0.10);
-        margin: 0 12px;
+        margin: 0 $spacing-3;
     }
 }

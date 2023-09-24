@@ -2,19 +2,14 @@ import React from 'react'
 import styles from './AnswerReactions.module.scss'
 import Button from 'src/components/kit/Button'
 import { BUTTON_CLASS_OPTIONS } from 'src/enums/kit/button'
-import { IAnswer, IQuestionPayload } from 'src/types/question'
 import Happy from 'src/assets/icons/Happy'
 import Sad from 'src/assets/icons/Sad'
 import { REACTIONS } from 'src/enums/questions/answer-reactions'
 import { questionService } from 'src/api/services/questionService'
 import { question_static_texts } from 'src/constants/staticTexts/questions'
 import { useParams } from 'react-router-dom'
+import { IAnswer, IAnswerReactionsTypes } from 'src/types/answer'
 
-interface IAnswerReactionsTypes {
-    question: IQuestionPayload;
-    answer: IAnswer;
-    updateQuestion: (questions: IQuestionPayload) => void
-}
 interface IParams {
     [id: string]: string;
 }

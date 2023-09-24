@@ -1,7 +1,10 @@
 
+@import 'src/assets/styles/colors';
+@import 'src/assets/styles/variables';
+
 .fieldContainer{
     display: flex;
     flex-direction: column;
-    margin-top: 24px;
+    margin-top: $spacing-6;
     direction: rtl;
 }

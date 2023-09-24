@@ -1,5 +1,7 @@
+@import 'src/assets/styles/variables';
+
 .formWrapper{
     .actionWrapper{
-        margin-top: 24px;
+        margin-top: $spacing-6;
     }
 }

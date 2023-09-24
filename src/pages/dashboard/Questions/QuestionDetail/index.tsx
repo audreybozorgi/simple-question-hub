@@ -5,7 +5,7 @@ import { questionService } from 'src/api/services/questionService'
 import ContentCard from 'src/components/app/question/ContentCard'
 import Header from 'src/components/app/layout/Header'
 import { header_static_text } from 'src/constants/staticTexts/header'
-import { IAnswer, IQuestionPayload } from 'src/types/question'
+import { IQuestionPayload } from 'src/types/question'
 import Answer from 'src/assets/icons/Answer';
 import AddNewAnswerForm from 'src/components/app/question/AddNewAnswerForm'
 import { useAppSelector } from 'src/redux/hooks'
@@ -14,6 +14,7 @@ import { question_static_texts } from 'src/constants/staticTexts/questions'
 import Happy from 'src/assets/icons/Happy'
 import Sad from 'src/assets/icons/Sad'
 import AnswerReactions from 'src/components/app/question/AnswerReactions'
+import { IAnswer } from 'src/types/answer'
 
 interface IParams {
     [id: string]: string;
@@ -58,8 +59,6 @@ const QuestionDetail: React.FC = () => {
             console.error(error)
         }
     }
-
-
 
     useEffect(() => {
         getQuestionDetails()

@@ -1,6 +1,7 @@
 import { AxiosInstance } from "src/api";
 import { API_ROUTES } from "src/constants/api/routes";
-import { IQuestionType, IQuestionPayload, IAnswer } from "src/types/question";
+import { IAnswer } from "src/types/answer";
+import { IQuestionType, IQuestionPayload } from "src/types/question";
 
 export const questionService = {
     addNewQuestion(data: IQuestionType) {

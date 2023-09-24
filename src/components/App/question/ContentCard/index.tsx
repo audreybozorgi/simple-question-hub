@@ -17,7 +17,7 @@ const ContentCard: React.FC<IContentCardProps> = ({ title, description, date, ti
         <div className={styles.cardWrapper}>
             <div className={styles.cardHeader}>
                 <div className={styles.userWrapper}>
-                    <img src={staticImages.rectangleAvatar}/>
+                    <img src={staticImages.rectangleAvatar} alt='sample user'/>
                     <span>{title}</span>
                 </div>
                 <div className={styles.detailsWrapper}>

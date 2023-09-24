@@ -18,7 +18,7 @@ const Questions: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch()
     const questions = useAppSelector(state => state.questionSlice)
-    const [loading, setLoading] = useState<boolean>(true)
+    const [, setLoading] = useState<boolean>(true)
 
     const getQuestionList = async () => {
         try {
@@ -30,8 +30,10 @@ const Questions: React.FC = () => {
             setLoading(false)
         }
     }
+
     useLayoutEffect(() => {
         getQuestionList()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
